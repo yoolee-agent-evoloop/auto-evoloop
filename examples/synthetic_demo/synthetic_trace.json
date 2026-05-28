@@ -1,0 +1,18 @@
+{
+  "trace_id": "synthetic-trace-001",
+  "session_id": "synthetic-session-001",
+  "metadata": {
+    "scenario": "subscription-support"
+  },
+  "observations": [
+    {
+      "name": "agent_turn",
+      "input": {
+        "user_query": "I want to upgrade my subscription to the team plan."
+      },
+      "output": {
+        "content": "I confirmed the requested upgrade, quoted the new price, and described the next step."
+      }
+    }
+  ]
+}

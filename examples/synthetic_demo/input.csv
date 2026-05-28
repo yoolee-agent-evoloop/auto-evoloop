@@ -1,0 +1,4 @@
+session_number,turn_number,metadata,user_query,dialog_history,expected_behavior
+1,1,"{""plan"": ""starter""}","I want to upgrade my subscription to the team plan.","[]","confirmed;price;next step"
+2,1,"{""plan"": ""team""}","Can you explain what happens if I cancel today?","[]","confirmed;plan;next step"
+3,1,"{""plan"": ""starter""}","I need an invoice and billing link for next month.","[]","confirmed;price;billing link"

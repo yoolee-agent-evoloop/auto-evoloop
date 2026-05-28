@@ -1,0 +1,4 @@
+name: synthetic-subscription-support
+description: Fictional support workflow for Auto-evoloop public alpha.
+scorer: local
+output_dir: /tmp/auto-evoloop-demo

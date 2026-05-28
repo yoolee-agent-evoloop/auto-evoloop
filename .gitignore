@@ -33,11 +33,11 @@ coverage/
 id_rsa*
 
 # Private or generated agent-evaluation artifacts
-projects/
-traces/
-traces_raw/
-eval_results/
-case_reports/
+/projects/
+/traces/
+/traces_raw/
+/eval_results/
+/case_reports/
 *.trace.json
 *.sqlite
 *.db
