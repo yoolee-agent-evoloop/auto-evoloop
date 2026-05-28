@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auto-evoloop"
+version = "0.1.0a0"
+description = "Open-source framework for agent evaluation and iterative optimization"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Auto-evoloop contributors" }]
+dependencies = [
+  "typer>=0.12"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+data = ["pandas>=2", "pyyaml>=6"]
+schema = ["pydantic>=2"]
+langgraph = ["langgraph>=0.2"]
+langfuse = ["langfuse>=3"]
+llm = ["openai>=1"]
+
+[project.scripts]
+evoloop = "auto_evoloop.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["auto_evoloop*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
