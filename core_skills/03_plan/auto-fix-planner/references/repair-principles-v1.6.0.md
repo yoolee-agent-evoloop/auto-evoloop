@@ -1,7 +1,8 @@
 # 修复原则策略文档 v1.6.0
 
-> 本文档从 auto-single-case-analyzer v1.6.0 的 SKILL.md Phase 4 中提取，
-> 作为 auto-case-summary 汇总阶段的修复原则输入。独立于 SKILL.md 使用。
+> 本文档从 auto-single-case-analyzer v1.6.0 的 SKILL.md Phase 4 中提取。
+> 作为 auto-fix-planner 方案制定阶段的修复原则约束输入。独立于 Skill 2 的 SKILL.md 使用。
+> 本副本由 auto-fix-planner 维护，与 Skill 2 的 references/ 下的原件保持同步。
 
 ---
 

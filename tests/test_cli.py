@@ -17,7 +17,7 @@ def test_cli_help() -> None:
 def test_cli_version() -> None:
     result = runner.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "0.1.0a1" in result.output
+    assert "0.1.0a2" in result.output
 
 
 def test_demo_run(tmp_path: Path) -> None:

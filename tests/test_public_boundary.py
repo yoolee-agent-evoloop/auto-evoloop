@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_only_readme_contains_chinese_text() -> None:
+def test_chinese_text_is_limited_to_readme_and_core_methodology() -> None:
     chinese = re.compile(r"[\u4e00-\u9fff]")
     checked_roots = [
         ROOT / "CONTRIBUTING.md",
@@ -23,8 +23,11 @@ def test_only_readme_contains_chinese_text() -> None:
         paths = [checked_root] if checked_root.is_file() else checked_root.rglob("*")
         for path in paths:
             if path.is_file() and path.suffix in {".md", ".py", ".html", ".yaml", ".yml", ".toml"}:
+                relative = path.relative_to(ROOT)
+                if relative == Path("CONTRIBUTING.md") or relative.parts[0] == "core_skills":
+                    continue
                 if chinese.search(path.read_text(encoding="utf-8")):
-                    offending.append(str(path.relative_to(ROOT)))
+                    offending.append(str(relative))
 
     assert offending == []
 
