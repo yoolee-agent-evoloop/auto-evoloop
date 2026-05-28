@@ -1,0 +1,43 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Node and frontend tooling
+node_modules/
+.next/
+dist/
+coverage/
+
+# Secrets and local runtime configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+
+# Private or generated agent-evaluation artifacts
+projects/
+traces/
+traces_raw/
+eval_results/
+case_reports/
+*.trace.json
+*.sqlite
+*.db
