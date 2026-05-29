@@ -64,6 +64,45 @@ Auto-evoloop helps teams structure iterative agent improvement work:
 - validate candidate changes against a baseline,
 - record evidence for human review.
 
+## How It Differs From Runtime Self-Evolution
+
+Auto-evoloop is complementary to systems such as OpenClaw-style self-evolving
+skills and Hermes Agent Self-Evolution, but it optimizes a different layer.
+
+OpenClaw is an agent runtime: its skill system extends what a live assistant can
+do, and self-evolution plugins can learn from runtime feedback by writing
+reusable episodic memory. Hermes is also positioned as a self-improving agent;
+its self-evolution tooling uses DSPy/GEPA to mutate skills, tool descriptions,
+system prompts, and code, then evaluate candidate variants.
+
+Auto-evoloop is not a live agent runtime and does not let an agent rewrite its
+own behavior directly from online experience. It is a development-time
+optimization harness:
+
+- **Sample scope**: runtime self-evolution learns from local online episodes;
+  Auto-evoloop optimizes against an eval suite and badcase set.
+- **Learning target**: runtime systems usually update memory, skills, prompts,
+  or tool descriptions inside the agent harness; Auto-evoloop produces reviewed
+  fixes to agent behavior, prompts, code, scoring rules, or evaluation setup.
+- **Reasoning unit**: runtime learning often stores "what worked here";
+  Auto-evoloop asks "why did this class of cases fail?" before planning a fix.
+- **Decision boundary**: runtime self-evolution can be automatic; Auto-evoloop
+  keeps policy-changing steps behind artifacts, diffs, eval comparison, and
+  human-in-the-loop gates.
+- **Generalization strategy**: online task samples are useful but narrow; an
+  eval suite gives a broader view of whether a change improves global policy or
+  merely overfits one session.
+
+In short: OpenClaw/Hermes-style systems help an agent improve while it is
+running. Auto-evoloop helps engineers decide what should become the next
+reviewed baseline before that behavior is shipped back into a runtime agent.
+
+Reference points for this comparison: [OpenClaw](https://github.com/openclaw/openclaw),
+[OpenClaw skills](https://openclawdoc.com/docs/skills/overview/),
+[OpenClaw self-evolve plugin](https://github.com/longmans/self-evolve),
+[Hermes Agent](https://hermes-agent.nousresearch.com/docs/), and
+[Hermes Agent Self-Evolution](https://github.com/NousResearch/hermes-agent-self-evolution).
+
 The public methodology is documented in:
 
 - [docs/quickstart.md](docs/quickstart.md) for setup and expected demo outputs,
@@ -128,6 +167,39 @@ Auto-evoloop 帮团队把 Agent 优化过程结构化：
 - 生成聚焦的修复方案；
 - 用 baseline/candidate 对比验证效果；
 - 留下可供人类 review 的证据。
+
+## 与运行时自进化的区别
+
+Auto-evoloop 和 OpenClaw 式自进化技能、Hermes Agent Self-Evolution 是互补关系，
+但优化的是不同层。
+
+OpenClaw 更像一个 Agent runtime：skill 系统扩展在线助手能做什么，自进化插件可以从
+运行时反馈中学习，把经验写成可复用的 episodic memory。Hermes 也把自己定位为
+self-improving agent；它的 self-evolution 工具使用 DSPy/GEPA 去变异 skills、tool
+descriptions、system prompts 和 code，再评估候选版本。
+
+Auto-evoloop 不是在线 Agent runtime，也不让 Agent 直接基于线上经验改写自己的行为。
+它是开发/离线阶段的优化 harness：
+
+- **样本视角**：运行时自进化主要从局部在线任务学习；Auto-evoloop 面向 eval suite
+  和 badcase 集合优化。
+- **学习对象**：运行时系统常更新 memory、skills、prompts 或工具描述；Auto-evoloop
+  产出经过 review 的行为、prompt、代码、评分规则或评测配置修复。
+- **推理单元**：运行时学习更容易沉淀“这次什么有效”；Auto-evoloop 先追问“一类 case
+  为什么失败”，再规划修复。
+- **决策边界**：运行时自进化可以自动发生；Auto-evoloop 把会改变 policy 的步骤放在
+  artifact、diff、eval 对比和 human-in-the-loop gate 后面。
+- **泛化策略**：线上小样本有价值但视野窄；eval suite 能更好判断一个改动是在提升全局
+  policy，还是只过拟合了某个 session。
+
+一句话：OpenClaw/Hermes 式系统帮助 Agent 在运行中变强；Auto-evoloop 帮工程团队判断
+哪些变化应该成为下一版可审计 baseline，再回流到运行时 Agent。
+
+本段对比参考：[OpenClaw](https://github.com/openclaw/openclaw)、
+[OpenClaw skills](https://openclawdoc.com/docs/skills/overview/)、
+[OpenClaw self-evolve plugin](https://github.com/longmans/self-evolve)、
+[Hermes Agent](https://hermes-agent.nousresearch.com/docs/) 和
+[Hermes Agent Self-Evolution](https://github.com/NousResearch/hermes-agent-self-evolution)。
 
 核心方法论见 [core_skills/DESIGN.md](core_skills/DESIGN.md)，公开实现上下文见
 [core_skills/CONTEXT.md](core_skills/CONTEXT.md)。
