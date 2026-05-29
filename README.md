@@ -9,6 +9,8 @@ local workflows, but it is not a production agent platform. Internal evaluation
 data, customer conversations, traces, credentials, proprietary prompts, private
 deployment code, and private repository history are intentionally excluded.
 
+![Auto-evoloop overview: eval-driven agent improvement harness](docs/assets/auto-evoloop-overview.png)
+
 ## Quickstart
 
 ```bash
