@@ -107,7 +107,7 @@ The public methodology is documented in:
 
 - [docs/quickstart.md](docs/quickstart.md) for setup and expected demo outputs,
 - [core_skills/DESIGN.md](core_skills/DESIGN.md) for workflow design,
-- [core_skills/CONTEXT.md](core_skills/CONTEXT.md) for public implementation context,
+- [CONTRIBUTING.md](CONTRIBUTING.md) for contribution workflow and governance,
 - [docs/concepts.md](docs/concepts.md) for glossary and artifact terms,
 - [docs/architecture.md](docs/architecture.md) for package and workflow mapping,
 - [docs/sanitization-policy.md](docs/sanitization-policy.md) for public boundary rules.
@@ -201,8 +201,8 @@ Auto-evoloop 不是在线 Agent runtime，也不让 Agent 直接基于线上经�
 [Hermes Agent](https://hermes-agent.nousresearch.com/docs/) 和
 [Hermes Agent Self-Evolution](https://github.com/NousResearch/hermes-agent-self-evolution)。
 
-核心方法论见 [core_skills/DESIGN.md](core_skills/DESIGN.md)，公开实现上下文见
-[core_skills/CONTEXT.md](core_skills/CONTEXT.md)。
+核心方法论见 [core_skills/DESIGN.md](core_skills/DESIGN.md)，贡献流程与治理规范见
+[CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 当前 alpha 能力边界
 
